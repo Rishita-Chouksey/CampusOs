@@ -1,0 +1,5 @@
+.upload-progress{display:flex;align-items:center;gap:12px;background:rgba(79,126,247,0.1);border:1px solid rgba(79,126,247,0.25);border-radius:var(--radius-sm);padding:10px 16px;margin-bottom:16px;font-size:14px;}
+.upload-progress__name{flex-shrink:0;color:var(--accent);max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.upload-progress__bar-wrap{flex:1;height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;}
+.upload-progress__bar{height:100%;background:var(--accent);border-radius:3px;transition:width 0.2s;}
+.upload-progress__pct{font-size:13px;color:var(--text-muted);flex-shrink:0;}
