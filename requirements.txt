@@ -1,0 +1,8 @@
+# CampusOS — Exam Prep API
+# Install with: pip install -r requirements.txt
+
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+google-generativeai==0.5.4
+python-dotenv==1.0.1
+pydantic==2.7.1
