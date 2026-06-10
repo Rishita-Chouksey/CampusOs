@@ -1,0 +1,49 @@
+.quiz-controls {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+}
+.num-control { display: flex; flex-direction: column; gap: 4px; }
+
+.score-banner {
+  display: flex; align-items: center; gap: 14px;
+  padding: 20px 24px; border-radius: var(--r-lg);
+  background: var(--accent-bg); border: 1px solid var(--accent);
+  margin-bottom: 20px;
+}
+.score-num { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--accent2); }
+.score-label { color: var(--txt-2); font-size: .9rem; flex:1; }
+
+.quiz-list { display: flex; flex-direction: column; gap: 16px; }
+
+.quiz-item { border-left: 3px solid var(--border); transition: border-color .2s; }
+.quiz-item.correct { border-left-color: var(--green); }
+.quiz-item.wrong   { border-left-color: var(--red); }
+
+.quiz-q { font-size: .95rem; color: var(--txt); margin-bottom: 14px; line-height: 1.5; }
+.q-num {
+  font-family: var(--font-display); font-weight: 700;
+  color: var(--accent2); margin-right: 8px; font-size: .8rem;
+}
+
+.options { display: flex; flex-direction: column; gap: 8px; }
+
+.option-btn {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; padding: 10px 14px;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: var(--r); cursor: pointer;
+  color: var(--txt-2); font-family: var(--font-body); font-size: .88rem;
+  text-align: left; transition: all .15s var(--ease);
+}
+.option-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--txt); background: var(--accent-bg); }
+.option-btn:disabled { cursor: default; }
+.option-btn.selected { border-color: var(--accent); background: var(--accent-bg); color: var(--txt); }
+.option-btn.correct-opt { border-color: var(--green); background: rgba(52,211,153,.10); color: var(--green); }
+.option-btn.wrong-opt { border-color: var(--red); background: rgba(248,113,113,.10); color: var(--red); }
+
+.opt-letter {
+  flex-shrink:0; width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; background: var(--border);
+  font-size: .72rem; font-weight: 700; color: var(--txt);
+}

@@ -1,0 +1,143 @@
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --bg:        #0e0f14;
+  --surface:   #16181f;
+  --surface2:  #1e2028;
+  --border:    #2a2d38;
+  --accent:    #7c6af7;        /* electric violet */
+  --accent2:   #a78bfa;
+  --accent-bg: rgba(124,106,247,0.10);
+  --green:     #34d399;
+  --red:       #f87171;
+  --yellow:    #fbbf24;
+
+  --txt:       #f0f0f5;
+  --txt-2:     #9299b0;
+  --txt-3:     #5a6070;
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  --r:    10px;
+  --r-lg: 16px;
+
+  --ease: cubic-bezier(.4,0,.2,1);
+}
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--txt);
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { display: flex; flex-direction: column; min-height: 100dvh; }
+
+/* ─── Typography ─────────────────────────────────────────────── */
+h1,h2,h3,h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; }
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+h3 { font-size: 1.1rem; }
+
+p  { line-height: 1.65; color: var(--txt-2); }
+
+a  { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── Shared Utilities ───────────────────────────────────────── */
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 10px; border-radius: 99px;
+  font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+}
+.pill-violet { background: var(--accent-bg); color: var(--accent2); }
+.pill-green  { background: rgba(52,211,153,.12); color: var(--green); }
+.pill-red    { background: rgba(248,113,113,.12); color: var(--red); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 24px;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 22px; border-radius: var(--r);
+  font-family: var(--font-display); font-weight: 600; font-size: .9rem;
+  border: none; cursor: pointer; transition: all .2s var(--ease);
+  white-space: nowrap;
+}
+.btn:disabled { opacity: .4; cursor: not-allowed; }
+
+.btn-primary {
+  background: var(--accent); color: #fff;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent2); transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(124,106,247,.35);
+}
+
+.btn-ghost {
+  background: transparent; color: var(--txt-2);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover:not(:disabled) { background: var(--surface2); color: var(--txt); }
+
+.btn-sm { padding: 7px 14px; font-size: .8rem; }
+
+/* ─── Textarea / Input ───────────────────────────────────────── */
+textarea, input, select {
+  width: 100%; padding: 12px 14px;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: var(--r); color: var(--txt);
+  font-family: var(--font-body); font-size: .9rem;
+  transition: border-color .2s var(--ease);
+  outline: none; resize: vertical;
+}
+textarea:focus, input:focus, select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124,106,247,.18);
+}
+textarea::placeholder, input::placeholder { color: var(--txt-3); }
+select option { background: var(--surface2); }
+
+label {
+  display: block; font-size: .8rem; font-weight: 600;
+  color: var(--txt-2); margin-bottom: 6px;
+  letter-spacing: .04em; text-transform: uppercase;
+}
+
+/* ─── Loading Spinner ────────────────────────────────────────── */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  display: inline-block; width: 18px; height: 18px;
+  border: 2px solid rgba(255,255,255,.2);
+  border-top-color: #fff;
+  border-radius: 50%; animation: spin .7s linear infinite;
+}
+
+/* ─── Error / Empty ──────────────────────────────────────────── */
+.error-box {
+  background: rgba(248,113,113,.08); border: 1px solid rgba(248,113,113,.25);
+  border-radius: var(--r); padding: 14px 16px;
+  color: var(--red); font-size: .88rem;
+}
+
+.empty-state {
+  text-align: center; padding: 60px 24px; color: var(--txt-3);
+}
+.empty-state .icon { font-size: 2.8rem; margin-bottom: 12px; }
+.empty-state p { font-size: .9rem; }
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }

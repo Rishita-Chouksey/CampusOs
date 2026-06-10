@@ -1,0 +1,90 @@
+.ctx-panel { padding: 0; overflow: hidden; }
+.ctx-toggle {
+  width: 100%; display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 20px; background: none; border: none; cursor: pointer;
+  color: var(--txt-2); font-family: var(--font-body); font-size: .88rem; font-weight: 500;
+  transition: background .15s;
+}
+.ctx-toggle:hover { background: var(--surface2); }
+.ctx-arrow { font-size: .7rem; color: var(--txt-3); }
+.ctx-body { padding: 4px 20px 20px; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid var(--border); }
+.ctx-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; }
+
+.chat-window {
+  min-height: 320px; max-height: 520px;
+  overflow-y: auto; padding: 20px;
+}
+.chat-empty {
+  height: 100%; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; gap: 12px; padding: 32px 16px;
+}
+.chat-empty-icon { font-size: 2.5rem; }
+.chat-empty p { color: var(--txt-2); font-size: .9rem; }
+.suggestions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 8px; }
+.suggestion-btn {
+  padding: 7px 14px; border-radius: 99px;
+  background: var(--surface2); border: 1px solid var(--border);
+  color: var(--txt-2); font-size: .78rem; cursor: pointer;
+  transition: all .15s; font-family: var(--font-body);
+}
+.suggestion-btn:hover { border-color: var(--accent); color: var(--txt); background: var(--accent-bg); }
+
+.chat-messages { display: flex; flex-direction: column; gap: 18px; }
+.chat-msg { display: flex; gap: 12px; align-items: flex-start; }
+.chat-msg.user { flex-direction: row-reverse; }
+.msg-avatar { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+.msg-body { max-width: 80%; display: flex; flex-direction: column; gap: 10px; }
+.chat-msg.user .msg-body { align-items: flex-end; }
+.msg-text {
+  padding: 10px 14px; border-radius: var(--r-lg);
+  font-size: .88rem; line-height: 1.55; color: var(--txt);
+  background: var(--surface2); border: 1px solid var(--border);
+}
+.chat-msg.user .msg-text { background: var(--accent-bg); border-color: var(--accent); }
+
+/* Typing dots */
+.typing {
+  padding: 14px 18px; background: var(--surface2);
+  border: 1px solid var(--border); border-radius: var(--r-lg);
+  display: flex; gap: 5px; align-items: center;
+}
+@keyframes blink { 0%,80%,100%{opacity:.2} 40%{opacity:1} }
+.typing span {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--txt-3);
+  animation: blink 1.2s infinite both;
+}
+.typing span:nth-child(2) { animation-delay: .2s; }
+.typing span:nth-child(3) { animation-delay: .4s; }
+
+/* Copilot result cards */
+.copilot-result { display: flex; flex-direction: column; gap: 8px; }
+.res-label {
+  font-size: .72rem; font-weight: 700; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--accent2);
+}
+.cop-cards { display: flex; flex-direction: column; gap: 8px; max-height: 300px; overflow-y: auto; }
+.cop-card {
+  padding: 10px 14px; border-radius: var(--r);
+  background: var(--surface); border: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.cop-q { font-size: .85rem; color: var(--txt); font-weight: 500; }
+.cop-a { font-size: .82rem; color: var(--txt-2); }
+
+.cop-q-item { padding: 10px 14px; border-radius: var(--r); background: var(--surface); border: 1px solid var(--border); }
+.cop-q-item p { font-size: .85rem; color: var(--txt); margin-bottom: 8px; }
+.cop-q-item ul { list-style: none; display: flex; flex-direction: column; gap: 4px; padding: 0; }
+.cop-q-item li { font-size: .82rem; color: var(--txt-2); padding-left: 8px; }
+.cop-q-item li.correct-li { color: var(--green); }
+
+.cop-day { padding: 8px 12px; border-left: 2px solid var(--accent); margin-bottom: 6px; }
+.cop-day-lbl { font-size: .75rem; font-weight: 700; color: var(--accent2); display: block; margin-bottom: 4px; }
+.cop-day p { font-size: .84rem; }
+
+/* Input row */
+.chat-input-row {
+  display: flex; gap: 10px; align-items: flex-end; padding: 14px 16px;
+}
+.chat-input-row textarea { resize: none; }
+.chat-input-row .btn { flex-shrink: 0; align-self: flex-end; }
