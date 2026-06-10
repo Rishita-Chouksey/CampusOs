@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, UploadFile, File, Form
+from fastapi import APIRouter, HTTPException, UploadFile, File, Form  # type: ignore[import]
 from backend.modules.notevault.models import (
     FileOut,
     get_folder,
