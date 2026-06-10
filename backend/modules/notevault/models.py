@@ -20,6 +20,12 @@ class FileOut(BaseModel):
     fileType: str
     fileUrl: str
     uploadedAt: str
+    # ── New OCR / summary fields ──────────────────────────────────────────────
+    ocrText: Optional[str] = None      # Raw text extracted from file
+    summary: Optional[str] = None      # AI-generated summary
+    title: Optional[str] = None        # AI-suggested title
+    tags: Optional[list[str]] = None   # AI-generated keyword tags
+    ocrStatus: str = "pending"         # "pending" | "done" | "failed"
 
 # ── In-memory store (replace with SQLite / Postgres in production) ────────────
 
@@ -42,15 +48,31 @@ def get_all_folders() -> list[dict]:
 def get_folder(folder_id: str) -> Optional[dict]:
     return folders_db.get(folder_id)
 
-def create_file_record(folder_id: str, file_name: str, file_type: str, file_url: str) -> dict:
+def create_file_record(
+    folder_id: str,
+    file_name: str,
+    file_type: str,
+    file_url: str,
+    ocr_text: str = "",
+    summary: str = "",
+    title: str = "",
+    tags: list[str] = None,
+    ocr_status: str = "pending",
+) -> dict:
     file_id = str(uuid.uuid4())
     record = {
-        "id": file_id,
-        "folderId": folder_id,
-        "fileName": file_name,
-        "fileType": file_type,
-        "fileUrl": file_url,
+        "id":         file_id,
+        "folderId":   folder_id,
+        "fileName":   file_name,
+        "fileType":   file_type,
+        "fileUrl":    file_url,
         "uploadedAt": datetime.utcnow().isoformat(),
+        # OCR / summary fields
+        "ocrText":    ocr_text,
+        "summary":    summary,
+        "title":      title,
+        "tags":       tags or [],
+        "ocrStatus":  ocr_status,
     }
     files_db[file_id] = record
     return record
