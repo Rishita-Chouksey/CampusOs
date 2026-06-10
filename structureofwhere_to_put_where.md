@@ -163,13 +163,4 @@ To persist data, swap `models.py` with **SQLite + SQLAlchemy** (easiest) or **Po
 
 Minimum change needed: replace the `folders_db` and `files_db` dicts with DB table operations. The route files don't need to change.
 
----
 
-## What's NOT built yet (future phases)
-
-- OCR / text extraction
-- AI summarization
-- Flashcard generation
-- Gemini integration
-- User authentication
-- Search across files
