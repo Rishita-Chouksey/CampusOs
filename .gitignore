@@ -1,1 +1,6 @@
 backend\serviceAccountKey.json
+.env
+__pycache__/
+.ipynb_checkpoints/
+venv/
+.env.local
