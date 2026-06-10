@@ -3,4 +3,3 @@ uvicorn[standard]==0.29.0
 python-multipart==0.0.9
 firebase-admin==6.5.0
 pydantic==2.9.0
-
